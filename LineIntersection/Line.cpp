@@ -4,7 +4,8 @@
 
 float Line::Gradient()
 {
-	return ((vertexB->y - vertexA->y) / (vertexB->x - vertexA->x));
+	if ((vertexB->x - vertexA->x) == 0) return 0;
+	else return ((vertexB->y - vertexA->y) / (vertexB->x - vertexA->x));
 }
 
 float Line::c()

@@ -34,20 +34,35 @@ int SweepLine2::NotBruteForceIntersection(int NumberOfLine) {
 	}
 	int Intersection = 0;
 	for (int i = 0; i<10; i++) {
+		int indexTidur = NULL;
 		for (int j = 0; j<NumberOfLine; j++) {
-			float KoordinatXdiI = ((i - line[j]->c()) / line[j]->Gradient());
-			float KoordinatXdiIMinSatu = ((i - 1 - line[j]->c()) / line[j]->Gradient());
-			if (line[j]->Gradient()>0) {
-				if (KoordinatXdiI >= line[j]->vertexA->x && KoordinatXdiI <= line[j]->vertexB->x) {
-					ar[j][i] = KoordinatXdiI;
+			//if (line[j]->Gradient() != 0) {
+				float KoordinatXdiI = ((i - line[j]->c()) / line[j]->Gradient());
+				float KoordinatXdiIMinSatu = ((i - 1 - line[j]->c()) / line[j]->Gradient());
+				if (line[j]->Gradient()>0) {
+					if (KoordinatXdiI >= line[j]->vertexA->x && KoordinatXdiI <= line[j]->vertexB->x) {
+						ar[j][i] = KoordinatXdiI;
+					}
 				}
-			}
-			if (line[j]->Gradient()<0) {
-				if (KoordinatXdiI <= line[j]->vertexB->x && KoordinatXdiI >= line[j]->vertexA->x) {
-					ar[j][i] = KoordinatXdiI;
+				if (line[j]->Gradient() < 0) {
+					if (KoordinatXdiI <= line[j]->vertexB->x && KoordinatXdiI >= line[j]->vertexA->x) {
+						ar[j][i] = KoordinatXdiI;
+					}
 				}
-			}
+			/*}
+			else {
+				indexTidur = j;
+			}*/
 		}
+		/*if (indexTidur != NULL) {
+			for (int n = 0; n < NumberOfLine; n++) {
+				if ((ar[n][i] >= line[indexTidur]->vertexA->x&&ar[n][i] <= line[indexTidur]->vertexB->x) || (ar[n][i] <= line[indexTidur]->vertexA->x&&ar[n][i] >= line[indexTidur]->vertexB->x)) {
+					if ((i >= line[n]->vertexA->y&& i <= line[n]->vertexB->y) || (i <= line[n]->vertexA->y&& i >= line[n]->vertexB->y)) {
+						Intersection++;
+					}
+				}
+			}
+		}*/
 	}
 	for (int i = 0; i<10; i++) {
 		for (int j = 0; j<NumberOfLine; j++) {

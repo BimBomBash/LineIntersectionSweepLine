@@ -2,7 +2,6 @@
 //
 
 #include "stdafx.h"
-#include "GL/glew.h"
 #include <iostream>
 #include <vector>
 #include <ctime>
@@ -12,13 +11,15 @@
 
 int main()
 {
+
 	std::vector<Line*> lines;
-	lines.push_back(new Line(new Vertex(1.0f, 1.0f), new Vertex(3.0f, 4.0f)));
-	lines.push_back(new Line(new Vertex(2.0f, 3.0f), new Vertex(4.0f, 1.0f)));
-	lines.push_back(new Line(new Vertex(2.0f, 6.0f), new Vertex(5.0f, 5.0f)));
-	lines.push_back(new Line(new Vertex(2.0f, 1.0f), new Vertex(8.0f, 4.0f)));
-	lines.push_back(new Line(new Vertex(5.0f, 7.0f), new Vertex(7.0f, 2.0f)));
-	
+	lines.push_back(new Line(new Vertex(0.0f, 9.0f), new Vertex(5.0f, 9.0f)));
+	//lines.push_back(new Line(new Vertex(1.0f, 3.0f), new Vertex(6.0f, 8.0f)));
+	lines.push_back(new Line(new Vertex(2.0f, 5.0f), new Vertex(7.0f, 5.0f)));
+	//lines.push_back(new Line(new Vertex(2.0f, 6.0f), new Vertex(9.0f, 2.0f)));
+	lines.push_back(new Line(new Vertex(5.0f, 4.0f), new Vertex(5.0f, 8.0f)));
+	lines.push_back(new Line(new Vertex(7.0f, 4.0f), new Vertex(9.0f, 5.0f)));
+	lines.push_back(new Line(new Vertex(7.0f, 5.0f), new Vertex(8.0f, 10.0f)));
 	std::clock_t start;
 	long double duration;
 
